@@ -3,12 +3,22 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "vite",
     "build": "tsc -b && vite build",
-    "lint": "eslint .",
-    "preview": "vite preview"
+    "build:analyze": "tsc -b && cross-env ANALYZE=true vite build",
+    "lint": "eslint ."
+  },
+  "dependencies": {
+    "animejs": "^4.0.2",
+    "react-transition-group": "^4.4.5"
   },
   "peerDependencies": {
     "react": "^19"
+  },
+  "devDependencies": {
+    "@types/node": "^22.15.29",
+    "@types/react-transition-group": "^4.4.12",
+    "cross-env": "^7.0.3",
+    "import": "^0.0.6",
+    "rollup-plugin-visualizer": "^6.0.1"
   }
 }
