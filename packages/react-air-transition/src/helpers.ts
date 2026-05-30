@@ -1,9 +1,9 @@
 export const DEFAULT_DURATION = 300;
 
 /**
- * Возвращает длительность анимации.
- * Если передан `progress` (0...1) прерванной анимации, длительность пропорционально сокращается,
- * чтобы продолжить/развернуть анимацию плавно с текущей точки.
+ * Returns the animation duration.
+ * When `progress` (0...1) of an interrupted animation is provided, the duration is scaled
+ * down proportionally so the animation can continue or reverse smoothly from the current point.
  */
 export const getDuration = (duration: number = DEFAULT_DURATION, progress?: number) => {
   if (progress) {
@@ -18,8 +18,8 @@ export const getDelay = (delay: number, index: number) => {
 };
 
 /**
- * Превращает значение `auto` в реальный `scrollHeight` элемента,
- * чтобы анимировать высоту на конкретное число.
+ * Converts `auto` to the element's actual `scrollHeight`
+ * so height can be animated to a concrete number.
  */
 export const getHeight = (
   height: number | string | Array<string | number>,

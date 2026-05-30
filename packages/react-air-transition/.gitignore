@@ -1,0 +1,4 @@
+# Copied from the repo root by scripts/prepack.mjs during pack/publish.
+# Removed again by scripts/postpack.mjs; ignored in case packing is interrupted.
+/README.md
+/LICENSE

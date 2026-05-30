@@ -35,8 +35,8 @@ const ChildrenWithRef = ({
 };
 
 /**
- * Обёртка для добавления простых анимаций появления или скрытия других компонентов.
- * Использует anime.js v4 и react-transition-group.
+ * Wrapper for adding simple enter/exit animations to other components.
+ * Uses anime.js v4 and react-transition-group.
  */
 export const AirTransition = ({
   children,
@@ -92,8 +92,8 @@ export const AirTransition = ({
   const getEnterAnimations = useCallback(() => {
     const result: TransitionDescription = { duration, ...(enter ?? DEFAULT_ENTER) };
 
-    // Если анимация прервала анимацию скрытия, не проигрываем появление заново с нуля,
-    // а сразу выставляем целевые (последние) значения массивов.
+    // When enter interrupts an exit animation, don't replay enter from scratch —
+    // apply the final (last) values from arrays immediately.
     if (exitAnimation.current) {
       Object.keys(result).forEach((key) => {
         const currentValue = result[key];
@@ -105,8 +105,8 @@ export const AirTransition = ({
 
     if ('height' in result && $el.current) {
       const exitProgress = exitAnimation.current?.progress ?? 0;
-      // Небольшой костыль: если анимируем высоту в `auto`, то при прерывании анимации скрытия
-      // в scrollHeight будет промежуточное значение. Поэтому используем высоту первой анимации.
+      // Small workaround: when animating height to `auto`, interrupting exit leaves
+      // an intermediate scrollHeight. Use the height from the first animation instead.
       const fallbackHeight =
         exitProgress > 0 && exitProgress < 1 ? initialScrollHeight.current : undefined;
 
