@@ -5,6 +5,9 @@
   "type": "module",
   "scripts": {
     "build": "pnpm --filter react-air-transition build",
+    "dev:docs": "pnpm --filter docs dev",
+    "build:docs": "pnpm --filter react-air-transition build && pnpm --filter docs build",
+    "preview:docs": "pnpm --filter docs preview",
     "build:analyze": "pnpm --filter react-air-transition build:analyze",
     "lint": "biome check .",
     "lint:fix": "biome check --write .",

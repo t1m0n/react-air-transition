@@ -45,8 +45,8 @@ function App() {
       <AirTransition
         active={visible}
         duration={400}
-        enter={{ opacity: [0, 1], translateY: ['16px', '0px'] }}
-        exit={{ opacity: 0, translateY: '16px' }}
+        enter={{opacity: [0, 1], translateY: ['16px', '0px']}}
+        exit={{opacity: 0, translateY: '16px'}}
       >
         <div>Animated content</div>
       </AirTransition>
@@ -67,8 +67,8 @@ function App() {
 |------|------|---------|-------------|
 | `children` | `ReactElement` | — | Element to animate (must accept `ref`) |
 | `active` | `boolean` | — | When `true`, the element is shown; when `false`, it is hidden |
-| `enter` | `TransitionDescription \| null` | `{ opacity: [0, 1] }` | Enter animation. `null` disables enter animation |
-| `exit` | `TransitionDescription \| null` | `{ opacity: 0 }` | Exit animation. `null` disables exit animation |
+| `enter` | `TransitionDescription \| null` | `{opacity: [0, 1]}` | Enter animation. `null` disables enter animation |
+| `exit` | `TransitionDescription \| null` | `{opacity: 0}` | Exit animation. `null` disables exit animation |
 | `duration` | `number` | `300` | Duration in ms; overridden by `duration` inside `enter` / `exit` / `animation` |
 | `enterEase` | `EasingParam` | `'outCubic'` | Easing for enter (anime.js v4) |
 | `exitEase` | `EasingParam` | `'outCubic'` | Easing for exit |
@@ -119,8 +119,8 @@ exit: {
 <AirTransition
   active={open}
   duration={400}
-  enter={{ opacity: [0, 1], translateY: ['16px', '0px'] }}
-  exit={{ opacity: 0, translateY: '16px' }}
+  enter={{opacity: [0, 1], translateY: ['16px', '0px']}}
+  exit={{opacity: 0, translateY: '16px'}}
 >
   <div>Content</div>
 </AirTransition>
@@ -132,12 +132,12 @@ exit: {
 <AirTransition
   active={expanded}
   duration={350}
-  enter={{ height: [0, 'auto'], opacity: [0, 1] }}
-  exit={{ height: 0, opacity: 0 }}
+  enter={{height: [0, 'auto'], opacity: [0, 1]}}
+  exit={{height: 0, opacity: 0}}
   enterEase="outQuad"
   exitEase="inQuad"
 >
-  <div style={{ overflow: 'hidden' }}>Expandable section</div>
+  <div style={{overflow: 'hidden'}}>Expandable section</div>
 </AirTransition>
 ```
 
@@ -153,8 +153,8 @@ exit: {
     enterDelay={80}
     delayIndex={index + 1}
     duration={300}
-    enter={{ opacity: [0, 1], translateX: ['-12px', '0px'] }}
-    exit={{ opacity: 0, translateX: '-12px' }}
+    enter={{opacity: [0, 1], translateX: ['-12px', '0px']}}
+    exit={{opacity: 0, translateX: '-12px'}}
   >
     <div>{item.label}</div>
   </AirTransition>
@@ -170,8 +170,8 @@ Use when the element stays mounted and you only want to animate property changes
   active
   animation={
     shifted
-      ? { translateX: '48px' }
-      : { translateX: '0px' }
+      ? {translateX: '48px'}
+      : {translateX: '0px'}
   }
 >
   <div>Slides without unmounting</div>

@@ -2,14 +2,14 @@ import type { EasingParam } from 'animejs';
 import type { ReactElement } from 'react';
 
 /**
- * Значение, которое можно анимировать.
- * Массив описывает анимацию `[from, to]`.
+ * A value that can be animated.
+ * An array describes a `[from, to]` animation.
  */
 export type TransitionValue = string | number | Array<string | number>;
 
 /**
- * Описание анимации: набор анимируемых свойств + опции anime.js v4.
- * Свойства соответствуют тем, что принимает `animate` из animejs.
+ * Animation description: animatable properties plus anime.js v4 options.
+ * Properties match those accepted by `animate` from animejs.
  */
 export type TransitionDescription = {
   duration?: number;
@@ -21,66 +21,77 @@ export type TransitionDescription = {
 
 export interface AirTransitionProps {
   /**
-   * Что будем анимировать? Children обязательно должен принимать ref,
-   * если сложно или невозможно добавить ref, то целевой компонент можно обернуть в <div>
+   * The element to animate. `children` must accept a ref;
+   * if it cannot, wrap the target component in a `<div>`.
    */
   children: ReactElement;
   /**
-   * Если true, то элемент будет показан
+   * When `true`, the element is shown.
    */
   active: boolean;
   /**
-   * Нужно ли анимировать компонент на стадии mount
+   * Alias for react-transition-group `in` (used by TransitionGroup).
+   * When set, takes precedence over `active`.
+   */
+  in?: boolean;
+  /**
+   * Unmount after exit. Set to `false` when used inside TransitionGroup.
+   */
+  unmountOnExit?: boolean;
+  /**
+   * Whether to run the enter animation on mount.
    */
   animateOnMount?: boolean;
   /**
-   * Нужно ли анимировать компонент на стадии unMount
+   * Whether to run the exit animation on unmount.
    */
   animateOnUnmount?: boolean;
   /**
-   * Продолжительность анимации в миллисекундах (по умолчанию 300).
-   * Переопределяется `duration` в `enter` / `exit` / `animation`.
+   * Animation duration in milliseconds (default 300).
+   * Overridden by `duration` in `enter` / `exit` / `animation`.
    */
   duration?: number;
   /**
-   * Задержка перед анимацией появления
+   * Delay before the enter animation.
    */
   enterDelay?: number;
   /**
-   * Задержка перед анимацией скрытия
+   * Delay before the exit animation.
    */
   exitDelay?: number;
   /**
-   * Описание анимации появления.
-   * `null` — отключить анимацию появления.
+   * Enter animation description.
+   * `null` disables the enter animation.
    */
   enter?: TransitionDescription | null;
   /**
-   * Описание анимации скрытия.
-   * `null` — отключить анимацию скрытия.
+   * Exit animation description.
+   * `null` disables the exit animation.
    */
   exit?: TransitionDescription | null;
   /**
-   * Функция смягчения на этапе появления компонента (anime.js v4)
+   * Easing for the enter phase (anime.js v4).
    */
   enterEase?: EasingParam;
   /**
-   * Функция смягчения на этапе скрытия компонента (anime.js v4)
+   * Easing for the exit phase (anime.js v4).
    */
   exitEase?: EasingParam;
   /**
-   * Если true, то после проигрывания анимации появления стили,
-   * которые были применены для этой анимации, будут удалены.
+   * When `true`, inline styles applied for the enter animation
+   * are removed after it completes.
    */
   removeStylesOnEnter?: boolean;
   /**
-   * Если нужно отобразить несколько элементов в цикле с небольшой задержкой,
-   * то можно передать индекс компонента и задержка будет автоматически добавлена
+   * When rendering multiple items in a loop with staggered timing,
+   * pass the item index — delay is multiplied by this value.
    */
   delayIndex?: number;
   /**
-   * Настройки анимации для уже смонтированного компонента,
-   * когда требуется плавно подвинуть или перевернуть его.
+   * Animation config for an already mounted element
+   * when you need to smoothly move or transform it in place.
    */
   animation?: TransitionDescription;
+  /** Called after the exit animation finishes (react-transition-group). */
+  onExited?: () => void;
 }

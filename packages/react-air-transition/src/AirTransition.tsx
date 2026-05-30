@@ -53,6 +53,9 @@ export const AirTransition = ({
   removeStylesOnEnter,
   delayIndex = 1,
   animation,
+  in: inProp,
+  unmountOnExit = true,
+  onExited,
   ...rest
 }: AirTransitionProps) => {
   const $el = useRef<HTMLElement>(null);
@@ -62,8 +65,14 @@ export const AirTransition = ({
   const exitAnimation = useRef<JSAnimation | undefined>(undefined);
   const initialScrollHeight = useRef<number | undefined>(undefined);
 
+  const transitionIn = inProp ?? active;
+
   useEffect(() => {
-    if (active && animation && (!enterAnimation.current || enterAnimation.current.progress >= 1)) {
+    if (
+      transitionIn &&
+      animation &&
+      (!enterAnimation.current || enterAnimation.current.progress >= 1)
+    ) {
       const node = $el.current;
       if (!node) return;
 
@@ -78,7 +87,7 @@ export const AirTransition = ({
         },
       } as AnimationParams);
     }
-  }, [active, animation, duration]);
+  }, [transitionIn, animation, duration]);
 
   const getEnterAnimations = useCallback(() => {
     const result: TransitionDescription = { duration, ...(enter ?? DEFAULT_ENTER) };
@@ -209,13 +218,14 @@ export const AirTransition = ({
 
   return (
     <TransitionLib<HTMLElement>
-      in={active}
-      unmountOnExit
+      in={transitionIn}
+      unmountOnExit={unmountOnExit}
       nodeRef={$el}
       onEntering={onEntering}
       onExiting={onExiting}
       addEndListener={onAnimationDone}
       timeout={timeout}
+      onExited={onExited}
       {...rest}>
       {patchedChildren}
     </TransitionLib>
