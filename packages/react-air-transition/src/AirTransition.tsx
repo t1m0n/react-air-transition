@@ -1,3 +1,5 @@
+import type { AnimationParams, JSAnimation } from 'animejs';
+import { animate, utils } from 'animejs';
 import React, {
   type ReactElement,
   type RefObject,
@@ -6,14 +8,11 @@ import React, {
   useMemo,
   useRef,
 } from 'react';
-import { animate, utils } from 'animejs';
-import type { AnimationParams, JSAnimation } from 'animejs';
 import TransitionLib from 'react-transition-group/Transition';
 
 import { getDelay, getDuration, getHeight } from './helpers';
 import { removeStylesFromElement } from './removeStylesFromElement';
-import type { TransitionDescription } from './types';
-import type { AirTransitionProps } from './types';
+import type { AirTransitionProps, TransitionDescription } from './types';
 
 const DEFAULT_ENTER: TransitionDescription = { opacity: [0, 1] };
 const DEFAULT_EXIT: TransitionDescription = { opacity: 0 };

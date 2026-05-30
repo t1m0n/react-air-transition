@@ -32,7 +32,7 @@ export const getHeight = (
   }
 
   if (Array.isArray(height)) {
-    return height.map(h => (h === 'auto' ? newHeight : h));
+    return height.map((h) => (h === 'auto' ? newHeight : h));
   }
 
   return height;
