@@ -1,10 +1,31 @@
 {
   "name": "react-air-transition",
   "version": "0.0.0",
+  "description": "React enter/exit animations with anime.js v4 and react-transition-group",
   "type": "module",
+  "license": "MIT",
+  "files": [
+    "dist"
+  ],
+  "main": "./dist/react-air-transition.js",
+  "module": "./dist/react-air-transition.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/react-air-transition.js"
+    }
+  },
+  "sideEffects": false,
+  "publishConfig": {
+    "access": "public"
+  },
   "scripts": {
-    "build": "tsc -b && vite build",
-    "build:analyze": "tsc -b && cross-env ANALYZE=true vite build"
+    "build": "tsc -p tsconfig.build.json && vite build",
+    "build:analyze": "tsc -p tsconfig.build.json && cross-env ANALYZE=true vite build",
+    "prepublishOnly": "pnpm run build",
+    "version:minor": "pnpm version minor --no-git-tag-version",
+    "publish:npm": "pnpm publish --access public --no-git-checks"
   },
   "dependencies": {
     "animejs": "catalog:",
@@ -21,5 +42,12 @@
     "react": "catalog:",
     "rollup-plugin-visualizer": "catalog:",
     "typescript": "catalog:"
-  }
+  },
+  "keywords": [
+    "react",
+    "animation",
+    "transition",
+    "animejs",
+    "react-transition-group"
+  ]
 }

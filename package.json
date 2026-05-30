@@ -9,7 +9,10 @@
     "lint": "biome check .",
     "lint:fix": "biome check --write .",
     "format": "biome format --write .",
-    "prepare": "husky"
+    "prepare": "husky",
+    "version:bump": "pnpm --filter react-air-transition version:minor",
+    "publish:npm": "pnpm --filter react-air-transition publish:npm",
+    "release": "pnpm run version:bump && pnpm run build && pnpm run publish:npm"
   },
   "packageManager": "pnpm@10.12.1",
   "devDependencies": {
