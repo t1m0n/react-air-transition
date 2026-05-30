@@ -7,16 +7,19 @@
     "build:analyze": "tsc -b && cross-env ANALYZE=true vite build"
   },
   "dependencies": {
-    "animejs": "^4.0.2",
-    "react-transition-group": "^4.4.5"
+    "animejs": "catalog:",
+    "react-transition-group": "catalog:"
   },
   "peerDependencies": {
-    "react": "^19"
+    "react": "catalog:"
   },
   "devDependencies": {
-    "@types/node": "^22.15.29",
-    "@types/react-transition-group": "^4.4.12",
-    "cross-env": "^7.0.3",
-    "rollup-plugin-visualizer": "^6.0.1"
+    "@types/node": "catalog:",
+    "@types/react": "catalog:",
+    "@types/react-transition-group": "catalog:",
+    "cross-env": "catalog:",
+    "react": "catalog:",
+    "rollup-plugin-visualizer": "catalog:",
+    "typescript": "catalog:"
   }
 }

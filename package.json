@@ -1,6 +1,7 @@
 {
   "name": "react-air-transition-monorepo",
   "version": "0.0.0",
+  "private": true,
   "type": "module",
   "scripts": {
     "build": "pnpm --filter react-air-transition build",
@@ -11,18 +12,16 @@
     "prepare": "husky"
   },
   "packageManager": "pnpm@10.12.1",
-  "dependencies": {
-    "react": "^19.1.0",
-    "react-dom": "^19.1.0"
-  },
   "devDependencies": {
-    "@biomejs/biome": "^2.4.16",
-    "@types/react": "^19.1.2",
-    "@types/react-dom": "^19.1.2",
-    "@vitejs/plugin-react-swc": "^3.9.0",
-    "husky": "^9.1.7",
-    "typescript": "~5.8.3",
-    "vite": "^6.3.5"
+    "@biomejs/biome": "catalog:",
+    "@types/react": "catalog:",
+    "@types/react-dom": "catalog:",
+    "@vitejs/plugin-react-swc": "catalog:",
+    "husky": "catalog:",
+    "react": "catalog:",
+    "react-dom": "catalog:",
+    "typescript": "catalog:",
+    "vite": "catalog:"
   },
   "engines": {
     "node": ">=20.0.0",
