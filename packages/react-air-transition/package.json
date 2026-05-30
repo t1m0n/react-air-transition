@@ -4,6 +4,8 @@
   "description": "React enter/exit animations with anime.js and react-transition-group",
   "type": "module",
   "license": "MIT",
+  "author": "t1m0n <t1m0n.tr@gmail.com>",
+  "homepage": "https://t1m0n.github.io/react-air-transition/",
   "files": [
     "dist",
     "README.md",

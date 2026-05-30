@@ -1,5 +1,8 @@
 # react-air-transition
 
+
+[https://t1m0n.github.io/react-air-transition/](https://t1m0n.github.io/react-air-transition/)
+
 A thin React wrapper around [react-transition-group](https://github.com/reactjs/react-transition-group) and [anime.js v4](https://animejs.com) for enter/exit animations.
 
 - **react-transition-group** — mounts/unmounts the child and runs enter/exit lifecycle hooks (`onEntering`, `onExiting`, …).
@@ -177,11 +180,6 @@ Use when the element stays mounted and you only want to animate property changes
   <div>Slides without unmounting</div>
 </AirTransition>
 ```
-
-## Behavior notes
-
-- **Unmount:** The component uses `unmountOnExit` — when `active` is `false`, the child is removed from the DOM after the exit animation (unless `exit` is `null` or `animateOnUnmount` is `false`).
-- **Interrupted animations:** If enter starts during exit (or vice versa), the running animation is cancelled and the new one continues from the current visual state.
 
 ## License
 
